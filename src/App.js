@@ -1,13 +1,19 @@
 import './App.css';
 import React, { useEffect, useState } from "react";
 
-function App() {
 
+function App() {
+  let Ableton = require('ableton');
   const [selectedFile, setSelectedFile] = useState('');
+  
 
   useEffect( ()=>{
     console.log(selectedFile);
-  }, [selectedFile])
+    if(selectedFile){
+      let ableton = new Ableton(selectedFile);
+      console.log(ableton);
+    }
+  }, [selectedFile, Ableton])
   
   return (
     <div className="App">
